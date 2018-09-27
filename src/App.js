@@ -14,13 +14,27 @@ class App extends Component {
     })
   };
 
+  deleteTitle = () => {
+    this.setState({
+      todoListTitle: ""
+    })
+  };
+
+  deleteAllTodos = () => {
+    this.setState({
+      todos: []
+    })
+  };
+
   render() {
     return (
       <div>
         <h1>{this.state.todoListTitle}</h1>
+        <button onClick={this.deleteTitle}> Delete title </button>
         {this.state.todos.map(x => (
           <ToDoListItem todo={x} />
         ))}
+        <button onClick={this.deleteAllTodos}> Delete all todos </button>
         <button onClick={this.addParameter}> Add todo</button>
       </div>
     );
